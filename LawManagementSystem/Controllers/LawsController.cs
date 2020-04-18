@@ -26,5 +26,9 @@ namespace LawManagementSystem.Controllers
             }
             return View(laws);
         }
+        public IActionResult Test()
+        {
+            return View();
+        }
     }
 }

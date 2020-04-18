@@ -2,24 +2,31 @@
 <header>
     <div class="container_12">
         <div class="grid_12">
+            <div>
+                <a asp-controller="Account" asp-action="Register"><button type="button" class="btn btn-dark">Register</button></a>
+                <button class="btn btn-dark">Login</button>
+            </div>
             @*<h1><a href="index.html"><img src="images/logo.png" alt=""></a> </h1>*@
-            <h2>Law ManageMent System</h2>          
+            <h2>Law ManageMent System</h2>
             <div class="clear"></div>
             <div class="menu_block">
+
+
                 <nav>
                     <ul class="sf-menu">
                         <li class="current"><a href="index.html">HOME</a></li>
                         <li class="with_ul">
                             <a asp-controller="Laws" asp-action="Index">Laws</a>
                             @*<ul>
-                                <li><a href="#">History</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                            </ul>*@
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>*@
                         </li>
                         <li><a href="practice.html">Lawyers</a></li>
                         <li><a href="clients.html">Courts</a></li>
                         <li><a href="contacts.html">Register Case</a></li>
+                        <li><a asp-controller="Laws" asp-action="Test">Test</a></li>
                     </ul>
                 </nav>
                 <div class="clear"></div>
