@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LawManagementSystem.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LawManagementSystem.Controllers
@@ -14,6 +15,8 @@ namespace LawManagementSystem.Controllers
         {
             this.dbContext = dbContext;
         }
+
+        [Authorize]
         public IActionResult Index(string searchString)
         {
 

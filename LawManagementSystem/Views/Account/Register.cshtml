@@ -10,10 +10,16 @@
         <!-- <img src="images/signup-bg.jpg" alt=""> -->
         <div class="container">
             <div class="signup-content">
-                <form method="POST" id="signup-form" class="signup-form">
+                <form method="POST" id="signup-form" class="signup-form" asp-controller="Account" asp-action="Register">
                     <h2 class="form-title">Create account</h2>
                     <div class="form-group">
-                        <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" />
+                        <input type="text" class="form-input" name="firstName" id="firstName" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="midName" id="midName" placeholder="Middle Name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="lastName" id="lastName" placeholder="Last Name" />
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" />
@@ -23,7 +29,13 @@
                         <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" />
+                        <input type="password" class="form-input" name="confirmPassword" id="confirmPassword" placeholder="Repeat your password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="phoneNumber" id="phoneNumber" placeholder="Contact No." />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="city" id="city" placeholder="City" />
                     </div>
                     <div class="form-group">
                         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />

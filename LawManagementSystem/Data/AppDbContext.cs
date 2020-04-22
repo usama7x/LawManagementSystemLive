@@ -14,7 +14,7 @@ namespace LawManagementSystem.Data
 
         public DbSet<Law> Laws{ get; set; }
         public DbSet<Court> Courts{ get; set; }
-
+        public DbSet<UserCase> UserCase { get; set; }
         public DbSet<Lawyer> Lawyers{ get; set; }
 
     }

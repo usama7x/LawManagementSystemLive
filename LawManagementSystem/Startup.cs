@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using LawManagementSystem.Data;
 using LawManagementSystem.Models;
 using Microsoft.AspNetCore.Builder;
@@ -29,27 +30,39 @@ namespace LawManagementSystem
         {
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("Default"));
+                options.UseSqlServer(Configuration.GetConnectionString("Default"));               
             });
 
-            services.AddIdentity<AppUser, AppRole>(config =>
+            services.AddIdentity<AppUser, IdentityRole>(options =>
             {
-                config.Password.RequireDigit = false;
-                config.SignIn.RequireConfirmedAccount = false;
-                config.User.RequireUniqueEmail = true;
+                // Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
-            //services.ConfigureApplicationCookie(config =>
-            //{
-            //    config.Cookie.Name = "LMS.Cookie";
-            //    config.LoginPath
-            //});
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "LMS.Cookie";
+                config.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                config.LoginPath = "/Account/Login";
+                config.LogoutPath = "/Account/Logout";
+            });
 
-
-            
-            
-            
-            
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
         }
 
@@ -70,7 +83,7 @@ namespace LawManagementSystem
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
