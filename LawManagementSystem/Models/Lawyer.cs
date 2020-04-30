@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,6 @@ namespace LawManagementSystem.Models
         public string Address { get; set; }
         public int YearsOfExperience { get; set; }
         public string Expertise { get; set; }
+        public DateTime TimeStamp { get; set; }
     }
 }

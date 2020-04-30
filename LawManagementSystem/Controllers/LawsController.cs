@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LawManagementSystem.Data;
+using LawManagementSystem.Models;
+using LawManagementSystem.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LawManagementSystem.Controllers
 {
+    [Authorize]
     public class LawsController : Controller
     {
         readonly AppDbContext dbContext;
@@ -16,7 +19,7 @@ namespace LawManagementSystem.Controllers
             this.dbContext = dbContext;
         }
 
-        [Authorize]
+        
         public IActionResult Index(string searchString)
         {
 
@@ -29,8 +32,23 @@ namespace LawManagementSystem.Controllers
             }
             return View(laws);
         }
-        public IActionResult Test()
+        
+        [HttpGet]
+        public IActionResult CreateLaw()
         {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult CreateLaw(LawViewModel model)
+        {
+            dbContext.Laws.Add(new Law 
+            {
+                Name = model.Name,
+                Description = model.Description,
+                Category = model.Category,
+                SectionNo = model.SectionNo
+            });
             return View();
         }
     }

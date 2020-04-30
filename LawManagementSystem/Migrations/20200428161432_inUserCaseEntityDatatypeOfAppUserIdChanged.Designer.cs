@@ -4,14 +4,16 @@ using LawManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LawManagementSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200428161432_inUserCaseEntityDatatypeOfAppUserIdChanged")]
+    partial class inUserCaseEntityDatatypeOfAppUserIdChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,7 +121,7 @@ namespace LawManagementSystem.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Cases");
+                    b.ToTable("Case");
                 });
 
             modelBuilder.Entity("LawManagementSystem.Models.Court", b =>
@@ -133,14 +135,9 @@ namespace LawManagementSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CourtId");
@@ -166,9 +163,6 @@ namespace LawManagementSystem.Migrations
 
                     b.Property<string>("SectionNo")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("LawId");
 
@@ -196,9 +190,6 @@ namespace LawManagementSystem.Migrations
 
                     b.Property<string>("PhoneNo")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("YearsOfExperience")
                         .HasColumnType("int");
@@ -231,33 +222,6 @@ namespace LawManagementSystem.Migrations
                     b.HasIndex("CaseId");
 
                     b.ToTable("UserCase");
-                });
-
-            modelBuilder.Entity("LawManagementSystem.ViewModels.AdminCasesViewModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ContactNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Stamp")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AdminCasesViewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

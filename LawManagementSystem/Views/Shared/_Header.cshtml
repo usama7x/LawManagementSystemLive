@@ -2,15 +2,15 @@
 <header>
     <div class="container_12">
         <div class="grid_12">
-            @*<h1><a href="index.html"><img src="images/logo.png" alt=""></a> </h1>*@
-            <h2>Law ManageMent System</h2>
+            <h1><a asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt=""></a> </h1>
+           
             <div class="clear"></div>
             <div class="menu_block">
 
 
                 <nav>
                     <ul class="sf-menu">
-                        <li class="current"><a href="index.html">HOME</a></li>
+                        <li class="current"><a asp-controller="Home" asp-action="Index">HOME</a></li>
                         <li class="with_ul">
                             <a asp-controller="Laws" asp-action="Index">Laws</a>
                             @*<ul>
@@ -20,8 +20,8 @@
                         </ul>*@
                         </li>
                         <li><a asp-controller="Lawyers" asp-action="Index">Lawyers</a></li>
-                        <li><a href="clients.html">Courts</a></li>
-                        <li><a href="contacts.html">Register Case</a></li>                        
+                        <li><a asp-controller="Courts" asp-action="Index">Courts</a></li>
+                        <li><a asp-controller="Case" asp-action="RegisterCase">Register Case</a></li>                        
                     </ul>
                 </nav>
                 <div class="clear"></div>

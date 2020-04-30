@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using LawManagementSystem.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using LawManagementSystem.ViewModels;
 
 namespace LawManagementSystem.Data
 {
@@ -16,6 +17,8 @@ namespace LawManagementSystem.Data
         public DbSet<Court> Courts{ get; set; }
         public DbSet<UserCase> UserCase { get; set; }
         public DbSet<Lawyer> Lawyers{ get; set; }
+        public DbSet<Case> Cases { get; set; }
+        public DbSet<LawManagementSystem.ViewModels.AdminCasesViewModel> AdminCasesViewModel { get; set; }
 
     }
 }

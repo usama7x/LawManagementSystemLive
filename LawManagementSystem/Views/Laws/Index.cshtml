@@ -4,43 +4,46 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container" style="width: 100%">
+    <main role="main" class="pb-3">
+        <h3>Law Search</h3>
+        <form method="post" asp-controller="Laws" asp-action="Index">
+            <div class="form-inline">
+                <input class="form-control" style="width: 28.5%;" name="searchString">
+                <button id="searchButton" class="btn btn-dark">Search</button>
+            </div>
+        </form>
 
-<h3>Law Search</h3>
-<form method="post" asp-controller="Laws" asp-action="Index">
-    <div class="form-inline">
-        <input class="form-control" name="searchString">
-        <button class="btn btn-dark">Search</button>
-    </div>
-</form>
-
-<table class="table table-dark table-bordered">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SectionNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>           
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SectionNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SectionNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SectionNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </main>
+</div>

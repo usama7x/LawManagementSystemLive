@@ -8,7 +8,7 @@ namespace LawManagementSystem.Models
     public class UserCase
     {
         public int Id { get; set; }
-        public int AppUserId { get; set; }
+        public string AppUserId { get; set; }
         public virtual AppUser User { get; set; }
         public virtual Case Case { get; set; }
         public int CaseId { get; set; }

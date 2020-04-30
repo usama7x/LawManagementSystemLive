@@ -4,45 +4,50 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CourtId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CourtId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CourtId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container" style="width: 100%">
+    <main role="main" class="pb-3">
+        <h3>Law Search</h3>
+        <form method="post" asp-controller="Laws" asp-action="Index">
+            <div class="form-inline">
+                <input class="form-control" style="width: 28.5%;" name="searchString">
+                <button id="searchButton" class="btn btn-dark">Search</button>
+            </div>
+        </form>
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        @*<td>
+                                <a asp-action="Edit" asp-route-id="@item.CourtId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.CourtId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.CourtId">Delete</a>
+                            </td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </main>
+</div>

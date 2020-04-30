@@ -5,13 +5,13 @@
 }
 
 <div class="main">
-
+   
     <section class="signup">
-        <!-- <img src="images/signup-bg.jpg" alt=""> -->
+       
         <div class="container">
-            <div class="signup-content">
+            <div class="signup-content">                
                 <form method="POST" id="signup-form" class="signup-form" asp-controller="Account" asp-action="Register">
-                    <h2 class="form-title">Create account</h2>
+                    <h2 class="form-title" style="color: black">Create account</h2>
                     <div class="form-group">
                         <input type="text" class="form-input" name="firstName" id="firstName" placeholder="First Name" />
                     </div>
@@ -46,7 +46,7 @@
                     </div>
                 </form>
                 <p class="loginhere">
-                    Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                    Have already an account ? <a asp-controller="Account" asp-action="Login" class="loginhere-link">Login here</a>
                 </p>
             </div>
         </div>

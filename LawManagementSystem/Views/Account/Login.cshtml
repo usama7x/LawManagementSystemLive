@@ -3,35 +3,110 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container" style="width: 100%">
+    <main role="main" class="pb-3">
+        @*<section class="signup">
+                <div class="container" style="background: black">
+                    <div class="signup-content" style="background: #212529">
+                        <form method="POST" id="signup-form" class="signup-form" asp-controller="Account" asp-action="Login">
+                          <h2 style="color: black" class="form-title">Login</h2>
+                            <div class="form-group">
+                                <input type="text" class="form-input loginInputs" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input loginInputs" name="password" id="password" placeholder="Password" />
+                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label">
+                                    <input style="display: inline" name="rememberMe" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Login" />
+                            </div>
 
-<h3>Login</h3>
+                        </form>
+                    </div>
+                </div>
+            </section>*@
 
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-action="Login" asp-controller="Account">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+
+        <div class="container contact-form" style="border-radius: 15px">
+            @*<div class="contact-image">
+                    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+                </div>*@
+            <form method="POST" id="signup-form" class="signup-form" asp-controller="Account" asp-action="Login">
+                <h2 style="color: black" class="form-title">Login</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        @*<div class="form-group">
+                                <label asp-for="Type"></label>
+                                <select asp-for="Type" asp-items="Html.GetEnumSelectList<CaseType>()" class="form-control">
+                                </select>
+                            </div>*@
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control" placeholder="Email *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btnContact" value="Login" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @*<div class="row">
+                <div class="col-md-4">
+                    <form method="post" asp-action="Login" asp-controller="Account">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Log In" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Log In" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }*@
+
+        @section Scripts {
+            <script src="~/vendor/jquery/jquery.min.js"></script>
+            <script src="~/js/main.js"></script>
+        }
+    </main>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
