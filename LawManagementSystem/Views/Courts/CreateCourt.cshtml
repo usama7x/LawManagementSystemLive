@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "CreateCourt";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container contact-form">
+    <div class="contact-image">
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+    </div>
+    <form method="post" asp-controller="Courts" asp-action="CreateCourt">
+        <h3>Create Court</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Court Name *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="type" class="form-control" placeholder="Court Type*" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="address" class="form-control" placeholder="Court Address" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Create" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

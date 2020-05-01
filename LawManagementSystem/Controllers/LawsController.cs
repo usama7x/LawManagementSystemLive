@@ -27,7 +27,7 @@ namespace LawManagementSystem.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 var result = laws.Where(x => x.SectionNo.Contains(searchString) || x.Description
-                .Contains(searchString)).ToList();
+                .Contains(searchString) || x.Category.Contains(searchString)).OrderByDescending(x => x.TimeStamp).ToList();
                 return View(result);
             }
             return View(laws);
@@ -40,15 +40,21 @@ namespace LawManagementSystem.Controllers
         }
         
         [HttpPost]
-        public IActionResult CreateLaw(LawViewModel model)
+        public async Task<IActionResult> CreateLaw(LawViewModel model)
         {
-            dbContext.Laws.Add(new Law 
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var newLaw = new Law()
             {
                 Name = model.Name,
                 Description = model.Description,
                 Category = model.Category,
                 SectionNo = model.SectionNo
-            });
+            };
+            await dbContext.Laws.AddAsync(newLaw);
+            await dbContext.SaveChangesAsync();
             return View();
         }
     }

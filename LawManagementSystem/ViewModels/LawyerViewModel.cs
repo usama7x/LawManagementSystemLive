@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace LawManagementSystem.ViewModels
 {
-    public class LawViewModel
+    public class LawyerViewModel
     {
         [Required]
         public string Name { get; set; }
-        [Required]
-        public string SectionNo { get; set; }
-        [Required]
-        public string Description { get; set; }
-        [Required]
-        public string Category { get; set; }
+        public string PhoneNo { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public int YearsOfExperience { get; set; }
+        public string Expertise { get; set; }
     }
 }

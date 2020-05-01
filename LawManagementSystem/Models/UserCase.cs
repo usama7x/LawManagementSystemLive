@@ -12,6 +12,7 @@ namespace LawManagementSystem.Models
         public virtual AppUser User { get; set; }
         public virtual Case Case { get; set; }
         public int CaseId { get; set; }
+        public string ContactNo {get; set;}
         public DateTime Stamp { get; set; }
     }
 }

@@ -19,7 +19,5 @@ namespace LawManagementSystem.ViewModels
         public string Details { get; set; }
         [DisplayName("Registered Date")]
         public DateTime Stamp { get; set; }
-
-
     }
 }

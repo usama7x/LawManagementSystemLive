@@ -50,7 +50,8 @@ namespace LawManagementSystem.Controllers
                 Stamp = DateTime.Now,
                 Case = newCase,
                 CaseId = newCase.CaseId,
-                User = user
+                User = user,
+                ContactNo = model.ContactNo
 
             };
 
@@ -63,16 +64,25 @@ namespace LawManagementSystem.Controllers
         [HttpGet]
         public IActionResult GetAllAsync()
         {
-            var userCases = dbContect.UserCase.Select(x => new AdminCasesViewModel
+            var userCases = dbContect.UserCase.OrderByDescending(x => x.Stamp).Select(x => new AdminCasesViewModel
             {
                 Name = x.User.FirstName + " " + x.User.LastName,
-                ContactNo = x.User.PhoneNumber,
+                ContactNo = x.ContactNo,
                 Details = x.Case.Details,
                 Id = x.Id,
                 Stamp = x.Stamp,
-                Type = x.Case.Type
+                Type = x.Case.Type,
+                
             });
             return View(userCases);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var userCase = dbContect.UserCase.FirstOrDefault(x => x.Id == id);
+            dbContect.UserCase.Remove(userCase);
+            dbContect.SaveChanges();
+            return RedirectToAction("GetAll", "Case");
         }
        
     }

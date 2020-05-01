@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "CreateLawyer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+        </div>
+        <form method="post" asp-controller="Lawyers" asp-action="CreateLawyer">
+            <h3>Create Lawyer</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Lawyer Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phoneNo" class="form-control" placeholder="Phone Number *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" class="form-control" placeholder="Email" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" class="form-control" placeholder="Physical Address" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="yearsOfExperience" class="form-control" placeholder="Years of Experience" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="expertise" class="form-control" placeholder="Expertise" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Create" />
+                    </div>
+                </div>
+                @*<div class="col-md-6">
+                    <div class="form-group">
+                        <textarea name="description" class="form-control" placeholder="Lawyer Info *" style="width: 100%; height: 150px;"></textarea>
+                    </div>
+                </div>*@
+            </div>
+        </form>
+    </div>
+

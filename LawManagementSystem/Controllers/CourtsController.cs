@@ -51,7 +51,8 @@ namespace LawManagementSystem.Controllers
             {
                 Name = model.Name,
                 Type = model.Type,
-                Address = model.Address
+                Address = model.Address,
+                TimeStamp = DateTime.Now
             };
             await dbContext.Courts.AddAsync(newCourt);
             await dbContext.SaveChangesAsync();           
